@@ -20,11 +20,11 @@ Choose a profile in shader settings that matches your hardware:
 
 | Profile | FPS (iGPU) | FPS (dGPU) | Description |
 |---------|------------|------------|-------------|
-| **ULTRA_PERFORMANCE** | 150+ | 300+ | Maximum FPS, minimal effects |
-| **PERFORMANCE** | 100-120 | 200+ | Good balance for iGPU |
-| **BALANCED** | 60-80 | 120-180 | Recommended for most users |
-| **QUALITY** | 40-60 | 90-120 | More effects, needs dGPU |
-| **ULTRA_QUALITY** | 30-45 | 60-90 | All features, best visuals |
+| **ULTRA_PERFORMANCE** | 250+ | ?? | Maximum FPS, minimal effects |
+| **PERFORMANCE** | 250+ | ?? | Good balance for iGPU |
+| **BALANCED** | 180+ | ?? | Recommended for most users |
+| **QUALITY** | 100+ | ?? | More effects, needs dGPU |
+| **ULTRA_QUALITY** | 90+ | ?? | All features, best visuals |
 
 ## Installation
 
