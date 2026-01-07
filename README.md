@@ -10,7 +10,7 @@ A performance-optimized shader pack based on Mellow Shaders.
 ## Features
 
 - 🚀 **Ultra-optimized** for integrated graphics (Intel/AMD iGPU)
-- 🎨 **Same beautiful look** as Mellow
+- 🎨 **Same atmosphere** as Mellow
 - ⚡ **150+ FPS** on integrated graphics (ULTRA_PERFORMANCE profile)
 - 🎮 **Multiple profiles** for different hardware
 
