@@ -56,7 +56,7 @@ MIT License (same as original Mellow Shaders)
 ## Links
 
 - Original Mellow: https://modrinth.com/shader/mellow
-- Report Issues: https://github.com/yourusername/wispy-shaders/issues
+- Report Issues: https://github.com/epxlsol/wispy-shader/issues
 
 ---
 
