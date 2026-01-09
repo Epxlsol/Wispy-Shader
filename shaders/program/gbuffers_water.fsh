@@ -8,11 +8,8 @@
 uniform sampler2D lightmap;
 uniform sampler2D gtexture;
 
-// Only declare colortex0 if it wasn't already declared in all_the_libs.glsl
-#ifndef COLORTEX0_DECLARED
-    uniform sampler2D colortex0;
-    #define COLORTEX0_DECLARED
-#endif
+// REMOVED: The manual uniform sampler2D colortex0 declaration 
+// It is already provided by all_the_libs.glsl
 
 varying vec2 texcoord;
 varying vec4 glcolor;
@@ -28,13 +25,13 @@ void main() {
     // 2. Add Water Quality Logic
     #if WATER_QUALITY >= 1
         // Fancy/Medium: Simple Alpha Blending using Screen Texture
+        // NOTE: colortex0 is being used here, but declared in the include above
         vec2 screenPos = gl_FragCoord.xy / vec2(viewWidth, viewHeight);
         vec3 screenCol = texture2D(colortex0, screenPos).rgb;
         
-        // We multiply the water color by MixedLights before mixing for proper shading
         Color.rgb = mix(screenCol, Color.rgb * MixedLights, Color.a);
     #else
-        // Low/Fast: Simple Tint (Standard behavior)
+        // Low/Fast: Simple Tint
         Color.rgb *= MixedLights;
     #endif
 
