@@ -1,7 +1,18 @@
 #include "/lib/all_the_libs.glsl"
 
+// Fallback definition for the compiler
+#ifndef WATER_QUALITY
+    #define WATER_QUALITY 0
+#endif
+
 uniform sampler2D lightmap;
 uniform sampler2D gtexture;
+
+// Only declare colortex0 if it wasn't already declared in all_the_libs.glsl
+#ifndef COLORTEX0_DECLARED
+    uniform sampler2D colortex0;
+    #define COLORTEX0_DECLARED
+#endif
 
 varying vec2 texcoord;
 varying vec4 glcolor;
@@ -15,10 +26,12 @@ void main() {
     Color.rgb *= Color.rgb; // Fast gamma
     
     // 2. Add Water Quality Logic
-    // Using a define that we will add to shaders.properties
     #if WATER_QUALITY >= 1
-        // Fancy/Medium: Simple Alpha Blending
-        vec3 screenCol = texture2D(colortex0, gl_FragCoord.xy / vec2(viewWidth, viewHeight)).rgb;
+        // Fancy/Medium: Simple Alpha Blending using Screen Texture
+        vec2 screenPos = gl_FragCoord.xy / vec2(viewWidth, viewHeight);
+        vec3 screenCol = texture2D(colortex0, screenPos).rgb;
+        
+        // We multiply the water color by MixedLights before mixing for proper shading
         Color.rgb = mix(screenCol, Color.rgb * MixedLights, Color.a);
     #else
         // Low/Fast: Simple Tint (Standard behavior)
