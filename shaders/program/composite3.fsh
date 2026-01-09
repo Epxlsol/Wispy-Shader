@@ -3,3 +3,11 @@
 
 varying vec2 texcoord;
 varying vec2 PrevTilePos;
+
+/* DRAWBUFFERS:1 */
+
+void main() {
+    // Horizontal + vertical blur combined
+    vec3 Color = blur3x3(colortex1, PrevTilePos);
+    gl_FragData[0].rgb = Color;
+}
