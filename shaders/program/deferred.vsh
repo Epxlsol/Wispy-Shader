@@ -1,11 +1,8 @@
 #include "/lib/all_the_libs.glsl"
 
-#ifndef f_BIOME_SKY_CONTRIBUTION
-float f_BIOME_SKY_CONTRIBUTION = 1.0;
-#endif
+#define f_BIOME_SKY_CONTRIBUTION 1.0 
 
 varying vec2 texcoord;
-
 #include "/global/light_colors.vsh"
 
 void main() {
