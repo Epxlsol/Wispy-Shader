@@ -1,3 +1,6 @@
+#if !defined f_BIOME_SKY_CONTRIBUTION
+    #define f_BIOME_SKY_CONTRIBUTION 1.0
+#endif
 #extension GL_EXT_gpu_shader4 : enable
 
 #include "/lib/settings.glsl"
