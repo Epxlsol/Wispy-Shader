@@ -88,13 +88,14 @@ const float f_NOON_AMBIENT = max_const(0.6 + NOON_AMBIENT);
 const float f_SUNSET_AMBIENT = max_const(0.5 + SUNSET_AMBIENT);
 const float f_NIGHT_AMBIENT = max_const(0.2 + NIGHT_AMBIENT);
 
-const float f_WATER_RED = max_const(0.0 + WATER_RED);
-const float f_WATER_GREEN = max_const(0.35 + WATER_GREEN);
-const float f_WATER_BLUE = max_const(0.25 + WATER_BLUE);
-const float f_WATER_ALPHA = max_const(0.4 + WATER_ALPHA);
+// Update DEFAULT scheme (COLOR_SCHEME == 1):
 
-const float f_BIOME_WATER_CONTRIBUTION = max_const(0.5 + BIOME_WATER_CONTRIBUTION);
-const float f_BIOME_SKY_CONTRIBUTION = max_const(0.3 + BIOME_SKY_CONTRIBUTION);
+const float f_WATER_RED = max_const(0.05 + WATER_RED);    // Changed from 0.0
+const float f_WATER_GREEN = max_const(0.45 + WATER_GREEN); // Changed from 0.35
+const float f_WATER_BLUE = max_const(0.35 + WATER_BLUE);   // Changed from 0.25
+const float f_WATER_ALPHA = max_const(0.25 + WATER_ALPHA); // Changed from 0.4 - more transparent!
+
+const float f_BIOME_WATER_CONTRIBUTION = max_const(0.3 + BIOME_WATER_CONTRIBUTION); // Reduced from 0.5
 
 // Vanilla
 #elif COLOR_SCHEME == 2
@@ -184,13 +185,14 @@ const float f_NOON_AMBIENT = max_const(0.5 + NOON_AMBIENT);
 const float f_SUNSET_AMBIENT = max_const(0.5 + SUNSET_AMBIENT);
 const float f_NIGHT_AMBIENT = max_const(0.3 + NIGHT_AMBIENT);
 
-const float f_WATER_RED = max_const(0.0 + WATER_RED);
-const float f_WATER_GREEN = max_const(0.35 + WATER_GREEN);
-const float f_WATER_BLUE = max_const(0.25 + WATER_BLUE);
-const float f_WATER_ALPHA = max_const(0.6 + WATER_ALPHA);
+// Update DEFAULT scheme (COLOR_SCHEME == 1):
 
-const float f_BIOME_WATER_CONTRIBUTION = clamp(0.7 + BIOME_WATER_CONTRIBUTION, 0, 1);
-const float f_BIOME_SKY_CONTRIBUTION = max_const(0.8 + BIOME_SKY_CONTRIBUTION);
+const float f_WATER_RED = max_const(0.05 + WATER_RED);    // Changed from 0.0
+const float f_WATER_GREEN = max_const(0.45 + WATER_GREEN); // Changed from 0.35
+const float f_WATER_BLUE = max_const(0.35 + WATER_BLUE);   // Changed from 0.25
+const float f_WATER_ALPHA = max_const(0.25 + WATER_ALPHA); // Changed from 0.4 - more transparent!
+
+const float f_BIOME_WATER_CONTRIBUTION = max_const(0.3 + BIOME_WATER_CONTRIBUTION); // Reduced from 0.5
 
 // Choc v7
 #elif COLOR_SCHEME == 3
@@ -280,13 +282,14 @@ const float f_NOON_AMBIENT = max_const(0.5 + NOON_AMBIENT);
 const float f_SUNSET_AMBIENT = max_const(0.5 + SUNSET_AMBIENT);
 const float f_NIGHT_AMBIENT = max_const(0.2 + NIGHT_AMBIENT);
 
-const float f_WATER_RED = max_const(0.0 + WATER_RED);
-const float f_WATER_GREEN = max_const(0.1 + WATER_GREEN);
-const float f_WATER_BLUE = max_const(0.2 + WATER_BLUE);
-const float f_WATER_ALPHA = max_const(0.6 + WATER_ALPHA);
+// Update DEFAULT scheme (COLOR_SCHEME == 1):
 
-const float f_BIOME_WATER_CONTRIBUTION = max_const(0.0 + BIOME_WATER_CONTRIBUTION);
-const float f_BIOME_SKY_CONTRIBUTION = max_const(0.3 + BIOME_SKY_CONTRIBUTION);
+const float f_WATER_RED = max_const(0.05 + WATER_RED);    // Changed from 0.0
+const float f_WATER_GREEN = max_const(0.45 + WATER_GREEN); // Changed from 0.35
+const float f_WATER_BLUE = max_const(0.35 + WATER_BLUE);   // Changed from 0.25
+const float f_WATER_ALPHA = max_const(0.25 + WATER_ALPHA); // Changed from 0.4 - more transparent!
+
+const float f_BIOME_WATER_CONTRIBUTION = max_const(0.3 + BIOME_WATER_CONTRIBUTION); // Reduced from 0.5
 
 // Visually Vibrant
 #elif COLOR_SCHEME == 4
@@ -376,14 +379,14 @@ const float f_NOON_AMBIENT = max_const(0.6 + NOON_AMBIENT);
 const float f_SUNSET_AMBIENT = max_const(0.5 + SUNSET_AMBIENT);
 const float f_NIGHT_AMBIENT = max_const(0.25 + NIGHT_AMBIENT);
 
-const float f_WATER_RED = max_const(0.33 + WATER_RED);
-const float f_WATER_GREEN = max_const(0.2 + WATER_GREEN);
-const float f_WATER_BLUE = max_const(0.03 + WATER_BLUE);
-const float f_WATER_ALPHA = max_const(0.6 + WATER_ALPHA);
+// Update DEFAULT scheme (COLOR_SCHEME == 1):
 
-const float f_BIOME_WATER_CONTRIBUTION = max_const(0.7 + BIOME_WATER_CONTRIBUTION);
-const float f_BIOME_SKY_CONTRIBUTION = max_const(0.7 + BIOME_SKY_CONTRIBUTION);
+const float f_WATER_RED = max_const(0.05 + WATER_RED);    // Changed from 0.0
+const float f_WATER_GREEN = max_const(0.45 + WATER_GREEN); // Changed from 0.35
+const float f_WATER_BLUE = max_const(0.35 + WATER_BLUE);   // Changed from 0.25
+const float f_WATER_ALPHA = max_const(0.25 + WATER_ALPHA); // Changed from 0.4 - more transparent!
 
+const float f_BIOME_WATER_CONTRIBUTION = max_const(0.3 + BIOME_WATER_CONTRIBUTION); // Reduced from 0.5
 // Winter
 #elif COLOR_SCHEME == 5
 
@@ -472,12 +475,13 @@ const float f_NOON_AMBIENT = max_const(0.4 + NOON_AMBIENT);
 const float f_SUNSET_AMBIENT = max_const(0.5 + SUNSET_AMBIENT);
 const float f_NIGHT_AMBIENT = max_const(0.2 + NIGHT_AMBIENT);
 
-const float f_WATER_RED = max_const(0.0 + WATER_RED);
-const float f_WATER_GREEN = max_const(0.25 + WATER_GREEN);
-const float f_WATER_BLUE = max_const(0.05 + WATER_BLUE);
-const float f_WATER_ALPHA = max_const(0.7 + WATER_ALPHA);
+// Update DEFAULT scheme (COLOR_SCHEME == 1):
 
-const float f_BIOME_WATER_CONTRIBUTION = max_const(0.5 + BIOME_WATER_CONTRIBUTION);
-const float f_BIOME_SKY_CONTRIBUTION = max_const(0.3 + BIOME_SKY_CONTRIBUTION);
+const float f_WATER_RED = max_const(0.05 + WATER_RED);    // Changed from 0.0
+const float f_WATER_GREEN = max_const(0.45 + WATER_GREEN); // Changed from 0.35
+const float f_WATER_BLUE = max_const(0.35 + WATER_BLUE);   // Changed from 0.25
+const float f_WATER_ALPHA = max_const(0.25 + WATER_ALPHA); // Changed from 0.4 - more transparent!
+
+const float f_BIOME_WATER_CONTRIBUTION = max_const(0.3 + BIOME_WATER_CONTRIBUTION); // Reduced from 0.5
 
 #endif
