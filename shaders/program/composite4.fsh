@@ -7,5 +7,6 @@ varying vec2 PrevTilePos;
 /* DRAWBUFFERS:1 */
 
 void main() {
-	gl_FragData[0].xyz = blur3x3(colortex1, PrevTilePos).xyz;
+    vec3 Color = blur3x3(colortex1, PrevTilePos);
+    gl_FragData[0].rgb = Color;
 }
