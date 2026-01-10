@@ -9,19 +9,18 @@ float water_fog() {
 
 float schlick(vec3 V, vec3 N) {
     const float R = 0.1;
-    float Theta = clamp(1 - dot(-V, N), 0, 1);
+    float Theta = clamp(1.0 - dot(-V, N), 0.0, 1.0);
     float Theta2 = Theta * Theta;
-    return R + (1 - R) * Theta2 * Theta2 * Theta; // Optimized x^5
+    return R + (1.0 - R) * Theta2 * Theta2 * Theta;
 }
 
 vec3 get_water_normal(vec2 Coords, vec3 WorldNormal) {
     #ifdef WATER_NORMALS
-    // Cache normal map lookups
     vec2 N = noise_water(Coords);
     float len_sq = N.x * N.x + N.y * N.y;
     return vec3(N.x, N.y, sqrt(max(0.0, 1.0 - len_sq)));
     #else
-    return vec3(0.0, 0.0, 1.0); // Flat water
+    return vec3(0.0, 0.0, 1.0);
     #endif
 }
 
@@ -41,22 +40,21 @@ vec3 sky_reflection(vec3 ReflectedVec, float WNy, float VdotL) {
     #endif
 }
 
-vec3 ssr(vec3 RVec, float Dist, vec3 ViewPos, float Fresnel, float WNy, float Noise, bool IsDH) {
+vec3 ssr(vec3 RVec, float VdotL, vec3 ViewPos, float Fresnel, float WNy, float Noise, bool IsDH) {
     vec3 ScreenPos = vec3(gl_FragCoord.xy * resolutionInv, gl_FragCoord.z);
     vec3 Offset = normalize(view_screen(ViewPos + RVec, IsDH) - ScreenPos);
 
-    // Calculate max steps based on screen distance
     vec3 Len = (step(0.0, Offset) - ScreenPos) / Offset;
     float MinLen = min(Len.x, min(Len.y, Len.z)) / float(SSR_STEPS);
     Offset *= MinLen;
 
     vec3 ExpectedPos = ScreenPos + Offset * Noise;
 
-    // Reduced binary refinement steps for performance
     int refinementSteps = int(Fresnel * 2.0 + 0.5);
 
     for (int i = 1; i <= SSR_STEPS; i++) {
-        float RealDepth = get_depth_solid(ExpectedPos.xy, IsDH);
+        bool tempIsDH;
+        float RealDepth = get_depth_solid(ExpectedPos.xy, tempIsDH);
 
         if (RealDepth < 0.56) break;
 
@@ -65,11 +63,11 @@ vec3 ssr(vec3 RVec, float Dist, vec3 ViewPos, float Fresnel, float WNy, float No
                 break;
             }
 
-            // Binary refinement (reduced iterations)
             for (int j = 0; j < refinementSteps; j++) {
                 Offset *= 0.5;
                 vec3 EPos1 = ExpectedPos - Offset;
-                if (EPos1.z > get_depth_solid(EPos1.xy, IsDH)) {
+                bool tempIsDH2;
+                if (EPos1.z > get_depth_solid(EPos1.xy, tempIsDH2)) {
                     ExpectedPos = EPos1;
                 }
             }
@@ -78,14 +76,11 @@ vec3 ssr(vec3 RVec, float Dist, vec3 ViewPos, float Fresnel, float WNy, float No
         ExpectedPos += Offset;
     }
 
-    #ifdef DISTANT_HORIZONS
-    return flipped_image_ref(RVec, Dist, ViewPos, WNy, IsDH);
-    #endif
+    vec3 ReflectedVec = reflect(normalize(ViewPos), normalize(RVec));
     return sky_reflection(ReflectedVec, WNy, VdotL);
 }
 
 vec4 get_fancy_water(vec3 ScreenPos, vec3 ViewPos, vec4 BaseColor, float SkyBrightness, mat3 TBN, bool IsDH) {
-    // Simplified fog calculation
     #ifndef DISTANT_HORIZONS
     if (isEyeInWater == 0) {
         BaseColor.a = min(BaseColor.a + water_fog(), 1.0);
@@ -123,7 +118,6 @@ vec4 get_fancy_water(vec3 ScreenPos, vec3 ViewPos, vec4 BaseColor, float SkyBrig
     }
     #endif
 
-    // Simplified fog (only if needed)
     #if defined ATMOSPHERIC_FOG || defined BORDER_FOG || defined DIMENSION_END
     vec3 PlayerPos = to_player_pos(ViewPos);
     vec3 SkyColor = get_sky(ViewPosN, get_sun_glare(dot(ViewPosN, sunPosN)));
