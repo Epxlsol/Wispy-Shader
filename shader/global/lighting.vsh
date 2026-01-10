@@ -1,3 +1,5 @@
+// Optimized lighting vertex shader
+
 varying vec2 LightmapCoords;
 varying vec2 texcoord;
 varying vec4 glcolor;
@@ -25,23 +27,22 @@ void init_generic() {
     Normal = normalize(gl_NormalMatrix * gl_Normal);
     vec3 NormalA;
 
-    // Optimized material checks
+    // Optimized material checks - branch-free
     float isSpecial = step(10000.5, material);
-    if (isSpecial > 0.5) {
-        NormalA = gbufferModelView[1].xyz;
-        float needsHalf = step(10003.5, material) * step(material, 10005.5);
-        NormalA *= mix(1.0, 0.5, needsHalf * step(mc_midTexCoord.t, gl_MultiTexCoord0.t));
-    } else {
-        NormalA = Normal;
-    }
+    float needsHalf = step(10003.5, material) * step(material, 10005.5);
+    float halfMult = mix(1.0, 0.5, needsHalf * step(mc_midTexCoord.t, gl_MultiTexCoord0.t));
+    
+    NormalA = mix(Normal, gbufferModelView[1].xyz * halfMult, isSpecial);
 
     glcolor = gl_Color;
 
     #ifdef HANDHELD_LIGHTS
     float Dist = length(ViewPos);
     float HandheldLight = heldBlockLightValue;
-    float hl = clamp((HandheldLight - Dist) * (1.0/15.0), 0.0, 1.0);
-    hl = hl * hl * hl * hl; // Fast pow4
+    float hl = clamp((HandheldLight - Dist) * 0.06667, 0.0, 1.0); // 1/15
+    // Optimized pow4
+    hl = hl * hl;
+    hl = hl * hl;
     LightmapCoords.x = max(LightmapCoords.x, hl);
     #endif
 
@@ -71,15 +72,11 @@ void init_generic() {
     SUN_AMBIENT += SUN_DIRECT * NdotL * FakeShadowFactor;
     #endif
 
-    // Fast pow4 for lightmap
-    float lmx = LightmapCoords.x;
-    lmx = lmx * lmx;
-    lmx = lmx * lmx;
-    LightmapCoords.x = lmx;
+    // Optimized pow4 for lightmap
+    float lm2 = LightmapCoords.x * LightmapCoords.x;
+    LightmapCoords.x = lm2 * lm2;
 
-    // Single lerp instead of mix
-    LightmapCoords.x = LightmapCoords.x + (LightmapCoords.x - LightmapCoords.x) * LightmapCoords.y;
-
+    // Combined lighting calculation
     MixedLights = TorchColor * LightmapCoords.x + mix(vec3(MinLight), SUN_AMBIENT, LightmapCoords.y);
     MixedLights *= 1.0 - darknessLightFactor;
 }
