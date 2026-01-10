@@ -15,10 +15,14 @@ float schlick(vec3 V, vec3 N) {
 }
 
 vec3 get_water_normal(vec2 Coords, vec3 WorldNormal) {
+    #ifdef WATER_NORMALS
     // Cache normal map lookups
     vec2 N = noise_water(Coords);
     float len_sq = N.x * N.x + N.y * N.y;
     return vec3(N.x, N.y, sqrt(max(0.0, 1.0 - len_sq)));
+    #else
+    return vec3(0.0, 0.0, 1.0); // Flat water
+    #endif
 }
 
 vec3 sky_reflection(vec3 ReflectedVec, float WNy, float VdotL) {
