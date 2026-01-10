@@ -1,0 +1,79 @@
+# Main Screen Labels
+screen.ENVIRONMENT=Environment
+screen.ATMOSPHERE=Atmosphere
+screen.LIGHTING=Lighting & Shadows
+screen.VISUAL_QUALITY=Visual Quality
+screen.POST_PROCESSING=Post Processing
+screen.ADVANCED=Advanced Settings
+screen.COLORS=Color Settings
+screen.INFO=Information
+
+# Environment
+screen.WATER_COLOR_SETTINGS=Water Coloring
+option.WATER_RED=Water Red
+option.WATER_GREEN=Water Green
+option.WATER_BLUE=Water Blue
+option.WATER_ALPHA=Water Opacity
+option.WATER_ALPHA.comment=Changes how see-through the water is. §bImpact: None.
+option.BIOME_SKY_CONTRIBUTION=Sky Reflection
+option.BIOME_SKY_CONTRIBUTION.comment=How much the sky color tints the water. §bImpact: None.
+option.BIOME_WATER_CONTRIBUTION=Biome Tint
+option.BIOME_WATER_CONTRIBUTION.comment=How much the local biome colors the water. §bImpact: None.
+
+screen.WATER_WAVE_SETTINGS=Waves & Normals
+option.WATER_NORMALS=Water Waves
+option.WATER_NORMALS.comment=Enables 3D-looking waves on the surface. §eImpact: Low.
+option.WATER_NORMAL_STRENGTH=Wave Strength
+option.WATER_NORMAL_SIZE=Wave Size
+option.WATER_NORMAL_SPEED=Wave Speed
+
+screen.TERRAIN_ANIMATION=Nature Animations
+option.WAVY_PLANTS=Waving Flora
+option.WAVY_PLANTS.comment=Makes grass and flowers move in the wind. §eImpact: Low.
+option.WAVE_LEAVES=Waving Leaves
+option.WAVE_LEAVES.comment=Makes tree leaves move. §eImpact: Low.
+
+# Atmosphere
+screen.FOG=Fog & Haze
+option.ATMOSPHERIC_FOG=Atmospheric Fog
+option.ATMOSPHERIC_FOG.comment=Adds a soft haze to distant terrain. §eImpact: Low.
+option.ATM_FOG_STRENGTH=Fog Density
+option.GODRAYS=Godrays
+option.GODRAYS.comment=Sunlight shafts through trees and fog. §cImpact: High.
+
+# Lighting
+screen.AMBIENT_STRENGTH=Ambient Light
+option.MIN_LIGHT_AMOUNT=Minimum Brightness
+option.MIN_LIGHT_AMOUNT.comment=Prevents caves from being pitch black. §bImpact: None.
+
+# Post Processing & Color
+screen.COLOR_GRADING=Color Grading
+option.COLOR_PRESET=Color Preset
+value.COLOR_PRESET.0=Original
+value.COLOR_PRESET.1=Vibrant
+value.COLOR_PRESET.2=High Contrast
+option.COLOR_PRESET.comment=Quickly change the overall look. §bImpact: None.
+
+option.EXPOSURE=Exposure
+option.EXPOSURE.comment=Overall brightness level. §bImpact: None.
+option.SATURATION=Saturation
+option.SATURATION.comment=Intensity of all colors. §bImpact: None.
+option.VIBRANCE=Vibrance
+option.VIBRANCE.comment=Smart color boost for dull areas. §bImpact: None.
+option.CONTRAST=Contrast
+option.CONTRAST.comment=Difference between light and dark. §bImpact: None.
+
+option.IMAGE_SHARPENING=Image Sharpening
+option.SHARPENING=Sharpen Strength
+option.SHARPENING.comment=Makes texture edges look crisp. §eImpact: Low.
+
+# Anti-Aliasing
+option.TAA_MODE=Anti-Aliasing
+option.TAA_MODE.comment=Smoothens jagged edges (staircase effect). §6Impact: Medium.
+
+# Performance Profiles
+profile.ULTRA_PERFORMANCE=§bUltra Performance
+profile.PERFORMANCE=§aPerformance
+profile.BALANCED=§eBalanced
+profile.QUALITY=§6Quality
+profile.ULTRA_QUALITY=§cUltra Quality
