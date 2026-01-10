@@ -2,8 +2,8 @@
 
 #include "/global/lighting.vsh"
 
-// Optimized triangle wave (faster than sin)
-float tri_fast(float x) {
+// Fast triangle wave (3-4x faster than sin)
+float tri_wave(float x) {
     x = fract(x);
     return abs(x + x - 1.0) - 0.5;
 }
@@ -12,24 +12,20 @@ void main() {
     init_generic();
 
     #ifdef WAVY_PLANTS
-    // Only process wavy plants if not too far away
-    if (ViewPos.z > -64.0) {
+    // Only process if close enough and is a wavy material
+    if (ViewPos.z > -64.0 && material >= 10003.0) {
         vec3 WorldPos = to_player_pos(ViewPos) + cameraPosition;
 
-        // Optimized wave calculation
+        // Single noise calculation using dot product
         vec3 WavePos = WorldPos * (1.0 / WAVE_SIZE) + frameTimeCounter * WAVE_SPEED;
+        float Noise = tri_wave(WavePos.x) * tri_wave(WavePos.y) * tri_wave(WavePos.z);
+        Noise *= (WAVE_AMPLITUDE + rainStrength * 0.1);
 
-        // Use fast triangle waves (3-4x faster than sin)
-        float wx = tri_fast(WavePos.x);
-        float wy = tri_fast(WavePos.y);
-        float wz = tri_fast(WavePos.z);
-        float Noise = wx * wy * wz * (WAVE_AMPLITUDE + rainStrength * 0.1);
-
-        // Branch-free material selection using step/mix
-        bool isLeaf = (material == 10003);
-        bool isPlant = (material == 10004);
-        bool isPlantLower = (material == 10005);
-        bool isPlantUpper = (material == 10006);
+        // Branch-free material selection
+        bool isLeaf = (material == 10003.0);
+        bool isPlant = (material == 10004.0);
+        bool isPlantLower = (material == 10005.0);
+        bool isPlantUpper = (material == 10006.0);
 
         #ifdef WAVE_LEAVES
         if (isLeaf) {
@@ -42,11 +38,11 @@ void main() {
             float topMult = float(gl_MultiTexCoord0.t < mc_midTexCoord.t);
             float bottomMult = float(gl_MultiTexCoord0.t > mc_midTexCoord.t);
 
-            // Combine conditions efficiently
+            // Efficient multiplier calculation
             float mult = mix(
                 mix(0.5, 1.0, float(isPlantUpper) * bottomMult),
-                             1.0,
-                             float(isPlant) * topMult
+                1.0,
+                float(isPlant) * topMult
             );
 
             WorldPos += Noise * mult;
