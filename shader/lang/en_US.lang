@@ -1,0 +1,185 @@
+# Wispy Shaders - Language File
+
+# Main Screens
+screen.ENVIRONMENT=Environment
+screen.ATMOSPHERE=Atmosphere
+screen.LIGHTING=Lighting
+screen.VISUAL_QUALITY=Visual Quality
+screen.POST_PROCESSING=Post Processing
+screen.VISUAL_ENHANCEMENTS=Visual Enhancements
+screen.ADVANCED=Advanced
+screen.INFO=Information
+
+# Visual Enhancements (NEW!)
+screen.LIGHTING_FX=Lighting Effects
+option.TINT_SHADOWS=Shadow Tinting
+option.TINT_SHADOWS.comment=Adds subtle blue tint to shadows. §bImpact: None.
+option.SHADOW_TINT_R=Shadow Red Tint
+option.SHADOW_TINT_G=Shadow Green Tint
+option.SHADOW_TINT_B=Shadow Blue Tint
+
+option.TORCH_FLICKER=Torch Flicker
+option.TORCH_FLICKER.comment=Torches flicker realistically. §bImpact: None.
+option.FLICKER_SPEED=Flicker Speed
+option.FLICKER_AMOUNT=Flicker Intensity
+
+option.WATER_CAUSTICS=Underwater Caustics
+option.WATER_CAUSTICS.comment=Light patterns underwater. §bImpact: None.
+option.CAUSTIC_STRENGTH=Caustic Strength
+option.CAUSTIC_SPEED=Caustic Speed
+
+screen.SKY_FX=Sky Effects
+option.ANIMATED_SKY=Animated Sky
+option.ANIMATED_SKY.comment=Sky gently pulses. §bImpact: None.
+option.SKY_ANIMATION_SPEED=Sky Animation Speed
+
+option.HORIZON_GLOW=Horizon Glow
+option.HORIZON_GLOW.comment=Sun glows at horizon. §bImpact: None.
+option.HORIZON_GLOW_STRENGTH=Horizon Glow Strength
+
+screen.FOG_FX=Fog Effects
+option.FOG_COLOR_SHIFT=Fog Color Shift
+option.FOG_COLOR_SHIFT.comment=Fog changes color with distance. §bImpact: None.
+option.FOG_SHIFT_STRENGTH=Fog Shift Strength
+
+option.BIOME_FOG_TINT=Biome Fog Tinting
+option.BIOME_FOG_TINT.comment=Fog matches biome colors. §bImpact: None.
+option.BIOME_TINT_STRENGTH=Biome Tint Strength
+
+screen.SCREEN_FX=Screen Effects
+option.VIGNETTE=Vignette
+option.VIGNETTE.comment=Darkens screen edges. §bImpact: None.
+option.VIGNETTE_STRENGTH=Vignette Strength
+
+option.EDGE_DARKENING=Edge Darkening
+option.EDGE_DARKENING.comment=Adds depth to screen edges. §bImpact: None.
+option.EDGE_STRENGTH=Edge Darkness
+
+# Environment (Simplified - Removed Reflections)
+option.WATER_TEXTURE_MODE=Water Style
+option.WATER_TEXTURE_MODE.comment=Changes how water looks. §bImpact: None.
+value.WATER_TEXTURE_MODE.0=Clear
+value.WATER_TEXTURE_MODE.1=Tinted
+value.WATER_TEXTURE_MODE.2=Flat Color
+
+option.WATER_FOG_STRENGTH=Water Clarity
+option.WATER_FOG_STRENGTH.comment=How far you can see underwater. §bImpact: None.
+
+screen.TERRAIN_ANIMATION=Plant Animation
+option.WAVY_PLANTS=Waving Plants
+option.WAVY_PLANTS.comment=Makes grass and flowers sway in wind. §eImpact: Low.
+option.WAVE_LEAVES=Waving Leaves
+option.WAVE_LEAVES.comment=Makes tree leaves move. §eImpact: Low.
+option.WAVE_AMPLITUDE=Wave Strength
+option.WAVE_SPEED=Wave Speed
+option.WAVE_SIZE=Wave Scale
+
+# Atmosphere (Removed Aurora/Godrays)
+screen.FOG=Fog
+option.ATMOSPHERIC_FOG=Atmospheric Fog
+option.ATMOSPHERIC_FOG.comment=Adds depth haze to distant terrain. §eImpact: Low.
+option.ATM_FOG_STRENGTH=Fog Density
+option.BORDER_FOG=World Edge Fog
+option.BORDER_FOG.comment=Fades terrain at render distance. §bImpact: None.
+
+screen.SKY=Sky
+option.STAR_SIZE=Star Size
+option.STAR_STRENGTH=Star Brightness
+
+screen.CLOUDS=Clouds
+option.FANCY_CLOUDS=Volumetric Clouds
+option.FANCY_CLOUDS.comment=3D clouds instead of flat. §6Impact: Medium.
+option.CLOUD_OPACITY=Cloud Density
+option.CLOUD_AMOUNT=Cloud Coverage
+option.CLOUD_SPEED=Cloud Speed
+option.CLOUD_QUALITY=Cloud Detail
+
+screen.WEATHER_EFFECTS=Weather
+option.RAIN_SKY_DESATURATION=Rain Desaturation
+option.RAIN_SKY_DARKENING=Rain Darkening
+
+screen.CUSTOM_SKY=Custom Skybox
+option.CUSTOM_SKYBOXES=Enable Custom Sky
+option.CUSTOM_SKYBOX_BRIGHTNESS=Skybox Brightness
+
+screen.CELESTIAL=Sun & Moon
+option.ROUND_SUN=Round Sun/Moon
+option.sunPathRotation=Sun Angle
+option.MOON_PHASE_INFLUENCE=Moon Phase Effect
+
+# Lighting
+option.MIN_LIGHT_AMOUNT=Minimum Light
+option.MIN_LIGHT_AMOUNT.comment=Prevents pitch darkness. §bImpact: None.
+option.LM_FALLOFF_CURVE=Light Falloff
+
+screen.AMBIENT_STRENGTH=Time-of-Day Lighting
+option.SUNRISE_AMBIENT=Sunrise Light
+option.NOON_AMBIENT=Noon Light
+option.SUNSET_AMBIENT=Sunset Light
+option.NIGHT_AMBIENT=Night Light
+
+# Visual Quality
+option.BLOOM=Bloom (Glow)
+option.BLOOM.comment=Makes bright areas glow. §6Impact: Medium.
+screen.BLOOM_SETTINGS=Bloom Settings
+option.BLOOM_STRENGTH=Bloom Strength
+option.BLOOM_CURVE=Bloom Curve
+
+option.SSAO=Ambient Occlusion
+option.SSAO.comment=Adds realistic shadows to corners. §cImpact: High.
+screen.SSAO_SETTINGS=SSAO Settings
+option.SSAO_STRENGTH=SSAO Strength
+option.SSAO_SCALE=SSAO Scale
+
+# Post Processing
+screen.ANTI_ALIASING=Anti-Aliasing
+option.TAA_MODE=AA Mode
+option.TAA_MODE.comment=Smooths jagged edges. §6Impact: Medium.
+value.TAA_MODE.0=Off
+value.TAA_MODE.1=TAA (Low)
+value.TAA_MODE.2=TAA (Medium)
+value.TAA_MODE.3=TAA (High)
+value.TAA_MODE.4=TAA (Ultra)
+
+option.TAA_BLEND_FACTOR=TAA Blend
+option.TAA_OFFCENTER_REJECTION=TAA Sharpness
+
+screen.COLOR_GRADING=Colors
+option.COLOR_PRESET=Color Preset
+value.COLOR_PRESET.0=Original
+value.COLOR_PRESET.1=Vibrant
+value.COLOR_PRESET.2=High Contrast
+
+option.EXPOSURE=Brightness
+option.SATURATION=Saturation
+option.VIBRANCE=Vibrance
+option.CONTRAST=Contrast
+option.TONEMAP_OPERATOR=Tone Mapping
+
+screen.CAMERA_EFFECTS=Camera Effects
+option.MOTION_BLUR=Motion Blur
+option.MOTION_BLUR.comment=Blurs during fast movement. §eImpact: Low.
+option.MOTION_BLUR_STRENGTH=Motion Blur Amount
+
+option.FILM_GRAIN=Film Grain
+option.FILM_GRAIN_STRENGTH=Grain Amount
+
+screen.SHARPENING=Sharpening
+option.IMAGE_SHARPENING=Enable Sharpening
+option.SHARPENING=Sharpen Strength
+
+# Advanced
+screen.DISTANT_HORIZONS=Distant Horizons
+option.DH_NOISE=DH Noise
+option.DH_CUTOFF=DH Transition Distance
+option.DH_NOISE_SIZE=DH Noise Scale
+
+screen.DEBUG=Debug
+option.DEBUG_SHOW_BUFFER=Show Buffer
+
+# Performance Profiles
+profile.ULTRA_PERFORMANCE=§bUltra Fast
+profile.PERFORMANCE=§aFast
+profile.BALANCED=§eBalanced
+profile.QUALITY=§6Quality
+profile.ULTRA_QUALITY=§cUltra
