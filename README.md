@@ -53,7 +53,7 @@ A performance-optimized shader pack initially based on Mellow Shaders and outper
 *   Reduced shader complexity
 *   Too many to count now mainly faster math less calls,lookups and samples check [source](https://github.com/Epxlsol/Wispy-Shader) for more
 
-[![Buy Me sum tea at https://ko-fi.com/M4M01S7TSM](https://storage.ko-fi.com/cdn/kofi6.png?v=4)](https://ko-fi.com/M4M01S7TSM)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M01S7TSM)
 
 ## Links
 
