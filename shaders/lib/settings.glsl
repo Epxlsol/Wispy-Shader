@@ -42,7 +42,7 @@
 #define NIGHT_VISION_G 1.0 // [0.5 0.6 0.7 0.8 0.9 1.0]
 #define NIGHT_VISION_B 0.3 // [0.0 0.1 0.2 0.3 0.4 0.5]
 
-#define HURT_VIGNETTE // Red vignette when damaged
+//#define HURT_VIGNETTE // Red vignette when damaged
 #define HURT_VIGNETTE_STRENGTH 0.5 // [0.0 0.25 0.5 0.75 1.0]
 
 #define FROST_EFFECT // Blue overlay when frozen
@@ -264,7 +264,7 @@
 #define SSAO_STRENGTH 0.5 // [0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5]
 #define SSAO_SCALE 0.75 // [0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.65 0.7 0.75]
 
-#define TAA_MODE 0 // [0 1 2]
+//#define TAA_MODE 0 // [0 1 2]
 #define TAA_BLEND_FACTOR 0.9 // [0.85 0.86 0.87 0.88 0.89 0.9 0.91 0.92 0.93 0.94 0.95]
 #define TAA_OFFCENTER_REJECTION 0.15 // [0.0 0.02 0.04 0.06 0.08 0.1 0.12 0.14 0.15 0.16 0.18 0.2 0.22 0.24 0.26 0.28 0.3]
 //#define SMAA
