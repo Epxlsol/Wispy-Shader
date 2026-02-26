@@ -1,6 +1,6 @@
 # Wispy Shaders V1.4
 
-A performance-optimized shader pack initially based on Mellow Shaders and outperforms many other so claimed 'potato' shaders. Works on all major versions. Also follow for updates.
+A performance-optimized shader pack initially based on Mellow Shaders and outperforms many other so claimed 'potato' shaders. Works on all major versions. Also follow for updates. [Working on rebuilding shader from the ground up to achieve better performance]
 
 ## Credits
 
